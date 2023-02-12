@@ -1,0 +1,20 @@
+mysql> create database faculty;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use faculty;
+Database changed
+mysql> create table faculty(facno varchar(4),facname varchar(6),gender char(4),dob date,doj date,mobileno int(8));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc faculty;
++----------+------------+------+-----+---------+-------+
+| Field    | Type       | Null | Key | Default | Extra |
++----------+------------+------+-----+---------+-------+
+| facno    | varchar(4) | YES  |     | NULL    |       |
+| facname  | varchar(6) | YES  |     | NULL    |       |
+| gender   | char(4)    | YES  |     | NULL    |       |
+| dob      | date       | YES  |     | NULL    |       |
+| doj      | date       | YES  |     | NULL    |       |
+| mobileno | int(8)     | YES  |     | NULL    |       |
++----------+------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)

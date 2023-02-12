@@ -1,0 +1,20 @@
+mysql> create database course;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use course;
+Database changed
+mysql> create table course(courseno varchar(2),coursedesc varchar(5),coursetype char(7),semno char(4),hallno varchar(1),facno varchar(8));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc course;
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| courseno   | varchar(2) | YES  |     | NULL    |       |
+| coursedesc | varchar(5) | YES  |     | NULL    |       |
+| coursetype | char(7)    | YES  |     | NULL    |       |
+| semno      | char(4)    | YES  |     | NULL    |       |
+| hallno     | varchar(1) | YES  |     | NULL    |       |
+| facno      | varchar(8) | YES  |     | NULL    |       |
++------------+------------+------+-----+---------+-------+
+6 rows in set (0.03 sec)

@@ -1,0 +1,32 @@
+mysql> create database fitness;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use fitness;
+Database changed
+mysql> create table fitness(trainerid int(2) not null unique,trainername varchar(22),age int(19) check (age<=18),primary key(trainername));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc table fitness;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table fitness' at line 1
+mysql> desc fitness;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| trainerid   | int(2)      | NO   | UNI | NULL    |       |
+| trainername | varchar(22) | NO   | PRI |         |       |
+| age         | int(19)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create table fitness(trainerid int(2),not null unique,trainername varchar(22),age int(19),check (age<=18),foreign key(trainername));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null unique,trainername varchar(22),age int(19),check (age<=18),foreign key(' at line 1
+mysql> desc fitness
+    -> ;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| trainerid   | int(2)      | NO   | UNI | NULL    |       |
+| trainername | varchar(22) | NO   | PRI |         |       |
+| age         | int(19)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)

@@ -1,0 +1,77 @@
+mysql> create database fruits;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use fruits;
+Database changed
+mysql> create table fruits(name varchar(11),customerid int(22),cost int(44));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc fruits;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| name       | varchar(11) | YES  |     | NULL    |       |
+| customerid | int(22)     | YES  |     | NULL    |       |
+| cost       | int(44)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into fruits value('apple',12345,50);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into fruits value('mango',12345.50);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into fruits value('mango',12345,50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into fruits value('banana',12345,0);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> inser^T into fruits value('papaya', 12345,50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'inser¶ into fruits value('papaya', 12345,50)' at line 1
+mysql> insert into fruits value('papaya',12345,50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from fruits;
++--------+------------+------+
+| name   | customerid | cost |
++--------+------------+------+
+| apple  |      12345 |   50 |
+| mango  |      12345 |   50 |
+| banana |      12345 |    0 |
+| papaya |      12345 |   50 |
++--------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> select cost from fruits;
++------+
+| cost |
++------+
+|   50 |
+|   50 |
+|    0 |
+|   50 |
++------+
+4 rows in set (0.00 sec)
+
+mysql> select customerid from fruits;
++------------+
+| customerid |
++------------+
+|      12345 |
+|      12345 |
+|      12345 |
+|      12345 |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select name from fruits;
++--------+
+| name   |
++--------+
+| apple  |
+| mango  |
+| banana |
+| papaya |
++--------+
+4 rows in set (0.00 sec)

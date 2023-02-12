@@ -1,0 +1,68 @@
+mysql> create database cricket;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use cricket;
+Database changed
+mysql> create table cricket(name varchar(11),country varchar(22),age int(33),);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table cricket(name varchar(22),country varchar(44),age ine(66));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ine(66))' at line 1
+mysql> create table cricket(name varchar(22),country varchar(44),age int(66));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc cricket;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(22) | YES  |     | NULL    |       |
+| country | varchar(44) | YES  |     | NULL    |       |
+| age     | int(66)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into cricket value('virat',usa,50);
+ERROR 1054 (42S22): Unknown column 'usa' in 'field list'
+mysql> insert into cricket value('virat','usa',50);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into cricket value('dhoni','india',40);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into cricket value('rohit','australia',30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into cricket value('sachin','africa',20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc cricket;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(22) | YES  |     | NULL    |       |
+| country | varchar(44) | YES  |     | NULL    |       |
+| age     | int(66)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select*from cricket;
++--------+-----------+------+
+| name   | country   | age  |
++--------+-----------+------+
+| virat  | usa       |   50 |
+| dhoni  | india     |   40 |
+| rohit  | australia |   30 |
+| sachin | africa    |   20 |
++--------+-----------+------+
+4 rows in set (0.00 sec)
+
+mysql> delete from cricket where age<=22;
+Query OK, 1 row affected (0.01 sec)
+mysql> select*from cricket;
++-------+-----------+------+
+| name  | country   | age  |
++-------+-----------+------+
+| virat | usa       |   50 |
+| dhoni | india     |   40 |
+| rohit | australia |   30 |
++-------+-----------+------+
+3 rows in set (0.00 sec)
